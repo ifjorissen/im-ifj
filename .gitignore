@@ -6,3 +6,4 @@ bower_components
 staticfiles
 static/*
 im-ifj_static/sass/bourbon
+**/__pycache__

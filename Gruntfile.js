@@ -49,8 +49,12 @@ module.exports = function(grunt) {
     },
     concat: {
             dev: {
-              src: ['<%= imifj.app %>/js/*'],
-              dest: '<%= imifj.build %>/js/app.min.js'
+              files:{
+                '<%= imifj.build %>/js/app.min.js': '<%= imifj.app %>/js/main.js',
+                '<%= imifj.tmp %>/js/app.min.js': '<%= imifj.app %>/js/main.js',
+              }
+              // src: ['<%= imifj.app %>/js/*'],
+              // dest: '<%= imifj.build %>/js/app.min.js'
             },
     }, 
     watch: {
