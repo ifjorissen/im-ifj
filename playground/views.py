@@ -17,7 +17,7 @@ def index(request):
 	# get the blog posts that are published
 	projects = Project.objects.all
 	# now return the rendered template
-	return render(request, 'playground/project_list.html', {'object_list': projects})
+	return render(request, 'playground/project_list.html', {'project_list': projects})
 
 def project_detail(request, slug):
 	project = Project.objects.get(slug=str(slug))
