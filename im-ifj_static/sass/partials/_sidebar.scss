@@ -1,4 +1,5 @@
 #navigation{
+  font-color: $pink;
   color: whitesmoke;
   background-color: whitesmoke;
   left: 0;
@@ -28,9 +29,10 @@
     }
   }
   a{
+    font-weight: 400;
     width: 100%;
-    text-decoration: none;
     color: $pink;
+    text-decoration: none;
     padding: 0;
     &:visited{
       color: $pink;

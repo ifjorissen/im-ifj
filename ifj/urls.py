@@ -20,8 +20,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     #django app urls
-    url(r'^blog/', include('blog.urls')),
-    url(r'^playground/', include('playground.urls')),
+    url(r'^playground/', include('playground.urls', namespace='playground')),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
     #static pages urls
     url(r'^about-me/', 
       TemplateView.as_view(template_name='pages/about.html'),
