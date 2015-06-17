@@ -1,0 +1,129 @@
+$cos30: .86602540378;
+
+@mixin translate-rotate-scale($x, $y, $angle, $scale){
+  -moz-transform: translate($x, $y) rotate($angle) scale($scale);
+  -webkit-transform: translate($x, $y) rotate($angle) scale($scale);
+  transform: translate($x, $y) rotate($angle) scale($scale);
+}
+
+@include keyframes(rot0b){
+  $tny: $ty + $cos30*($linew/2);
+  100%{
+    @include translate-rotate-scale($tx, $tny, 0deg, .5);
+  }
+}
+
+@include keyframes(rot0t){
+  $tny: $ty - $cos30*($linew/2);
+  100%{
+    @include translate-rotate-scale($tx, $tny, 0deg, .5);
+  }
+}
+
+@include keyframes(rot120){
+  100%{
+    transform-origin: left;
+    @include translate-rotate-scale($tx, $ty, 120deg, .5);
+  }
+}
+
+@include keyframes(rot-60r){
+  100%{
+    transform-origin: right;
+    @include translate-rotate-scale($tx, $ty, -60deg, .5);
+  }
+}
+
+@include keyframes(rot-60l){
+  100%{
+    transform-origin: left;
+    @include translate-rotate-scale($tx, $ty, -60deg, .5);
+  }
+}
+
+@include keyframes(rot60r){
+  100%{
+    transform-origin: right;
+    @include translate-rotate-scale($tx, $ty, 60deg, .5);
+  }
+}
+
+@include keyframes(rot60l){
+  100%{
+    transform-origin: left;
+    @include translate-rotate-scale($tx, $ty, 60deg, .5);
+  }
+}
+
+.l{
+    position: absolute;
+    background: $pink;
+    width: $linew *1rem;
+    height: 3px;
+}
+
+.hex-wrapper{
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.hex{
+  // position: absolute;
+  height: $hexh * 1rem;
+  width: $hexw * 1rem;
+  // @include center(x);
+  margin: auto;
+}
+
+
+.line1 {
+    @extend .l;
+    @include translate-rotate-scale($tx, $ty, 0deg, 1);
+    .is-loading &{
+      // -webkit-animation: rot0b 2s alternate infinite; 
+      @include animation(rot0b 2s alternate infinite)
+    }
+}
+
+.line2 {
+    @extend .l;
+    @include translate-rotate-scale($tx, $ty, 0deg, 1);
+    .is-loading &{
+      // -webkit-animation: rot0t 2s alternate infinite;
+      @include animation(rot0t 2s alternate infinite)
+    }
+}
+
+.line3 {
+    @extend .l;
+    @include translate-rotate-scale($tx, $ty, 0deg, 1);
+    .is-loading &{
+      // -webkit-animation: rot-60r 2s alternate infinite;
+      @include animation(rot-60r 2s alternate infinite)
+    }
+}
+
+.line4 {
+    @extend .l;
+    @include translate-rotate-scale($tx, $ty, 0deg, 1);
+    .is-loading &{
+      // -webkit-animation: rot60l 2s alternate infinite;
+      @include animation(rot60l 2s alternate infinite)
+    }
+
+}
+.line5 {
+    @extend .l;
+    @include translate-rotate-scale($tx, $ty, 0deg, 1);
+    .is-loading &{
+      // -webkit-animation: rot-60l 2s alternate infinite;
+      @include animation(rot-60l 2s alternate infinite)
+    }
+}
+.line6 {
+    @extend .l;
+    @include translate-rotate-scale($tx, $ty, 0deg, 1);
+    .is-loading &{
+      // -webkit-animation: rot60r 2s alternate infinite;
+      @include animation(rot60r 2s alternate infinite)
+    }
+}

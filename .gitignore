@@ -3,3 +3,6 @@ ifj/settings.py
 node_modules
 bower_components
 **/*.pyc
+staticfiles
+static/*
+im-ifj_static/sass/bourbon

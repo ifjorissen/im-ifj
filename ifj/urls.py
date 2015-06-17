@@ -15,7 +15,62 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    #django app urls
+    url(r'^blog/', include('blog.urls')),
+    url(r'^playground/', include('playground.urls')),
+    #static pages urls
+    url(r'^about-me/', 
+      TemplateView.as_view(template_name='pages/about.html'),
+      name='about-me'),
+    url(r'^find-me/', 
+      TemplateView.as_view(template_name='pages/find-me.html'),
+      name='find-me'),
+    url(r'^resu-me/', 
+      TemplateView.as_view(template_name='pages/resume.html'),
+      name='resu-me'),
+    url(r'^$', 
+      TemplateView.as_view(template_name='pages/about.html'),
+      name='landing'),
 ]
+
+# from django.conf.urls import patterns, include, url
+# from django.contrib import admin
+# from staticpages.views import HomeView, AboutView, FindMeView, ResumeView
+
+# admin.autodiscover()
+
+# urlpatterns = patterns('',
+
+#   #admin urls
+#   url(r'^admin/', include(admin.site.urls)),
+
+#   #photography gallery urls
+#   url(r'^photography/', include('photography.urls')),
+#   # url(r'^photologue/', include('photologue.urls', namespace='photologue')),
+
+#   #django app urls
+#   url(r'^blog/', include('blogengine.urls')),
+#   url(r'^playground/', include('playground.urls')),
+
+#   #static pages urls
+#   url(r'^about-me/', AboutView.as_view()),
+#   url(r'^find-me/', FindMeView.as_view()),
+#   url(r'^resume/', ResumeView.as_view()),
+#   url(r'^$', AboutView.as_view())
+#   # url(r'^$', HomeView.as_view())
+  
+# )
+
+  # url(r'^about-me/', 
+ #    TemplateView.as_view(template_name='templates/about.html'),
+ #    name='about-me'),
+  # url(r'^find-me/', 
+ #    TemplateView.as_view(template_name='templates/find-me.html'),
+ #    name='find-me'),
+ #  url(r'^resu-me/', 
+ #    TemplateView.as_view(template_name='templates/resume.html'),
+ #    name='resu-me'),

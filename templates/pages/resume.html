@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%} ifj {% endblock %}
+{% block content %}
+<section class="row">
+		{% include "includes/nav.html" %}
+  	<section id = "resume" class="col s12 m12 l10 offset-l2 valign-wrapper"> 
+    <object data="{% static 'assets/ifjorissen_resumeS15.pdf' %}" type="application/pdf" width="100%" height="100%">
+   
+    alt:<a href="{% static 'assets/ifjorissen_resumeS15.pdf' %}">here!</a></p>
+    
+  </object>
+  </section>
+</section>
+{% endblock %}    

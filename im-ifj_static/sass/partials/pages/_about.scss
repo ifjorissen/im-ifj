@@ -1,0 +1,20 @@
+#me{
+	border-right: $pink .5rem solid;
+	padding: .5rem 1rem;
+
+	#more{
+		ul{
+			padding: 0;
+		}
+		li{
+			// border-left: .25em $pink solid;
+			padding: 0 .5rem;
+			&.header{
+				border-left: none;
+				padding: 0;
+				font-weight: 400;
+				color: $pink;
+			}
+		}
+	}
+}

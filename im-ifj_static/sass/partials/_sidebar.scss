@@ -1,0 +1,39 @@
+#navigation{
+  color: whitesmoke;
+  background-color: whitesmoke;
+  left: 0;
+  padding: 0;
+  @include MQ(L) {
+    height: 100vh;
+    position: fixed;
+  }
+  ul{
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    &.side-nav{
+      width: 15rem;
+      max-width: 50vw;
+    }
+    li{
+      line-height: 4rem;
+      text-align: center;
+      float: none;
+      &:hover{
+        background: linear-gradient(to right, transparent, rgba($pink, .2));
+        &.active{
+          background: rgba(0,0,0,0.1);
+        }
+      }
+    }
+  }
+  a{
+    width: 100%;
+    text-decoration: none;
+    color: $pink;
+    padding: 0;
+    &:visited{
+      color: $pink;
+    }
+  }
+}

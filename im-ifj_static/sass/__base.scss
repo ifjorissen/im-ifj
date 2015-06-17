@@ -1,0 +1,80 @@
+//compass imports
+// @import "../bower_components/compass-mixins/lib/compass";
+// @import 'compass';
+// @import 'compass-mixins/lib/animate'
+// @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "../../bower_components/compass-mixins/lib/animation/";
+// @import "../../bower_components/compass-mixins/lib/compass/css3/animation";
+@import "bourbon/bourbon";
+//custom imports
+@import 'partials/variables';
+@import 'partials/hex';
+@import 'partials/sidebar';
+
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+html, body, main{
+  font-family: $font-family;
+  font-weight: $font-weight;
+  // font-size: 1em;
+  // line-height: 1.6;
+  background: $main-bkgrd;
+  margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    // flex-direction: column;
+    flex-flow: column wrap;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.flow-text{
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+main>section.row{
+  display: flex;
+  height: 100vh;
+  @include MQ(S){
+    flex-flow: row wrap;
+  }
+  @include MQ(M){
+    flex-flow: row wrap;
+  }
+  margin: 0;
+}
+
+.row{
+  margin-bottom: 2rem;
+}
+
+
+.mastfoot {
+  // height: 1.5rem;
+  width: 100%;
+  color: $pink;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  p{
+    font-size: .75em;
+    text-align: center;
+    line-height: 2em;
+    padding: 0 1.5rem;
+  }
+}
