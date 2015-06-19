@@ -12,7 +12,7 @@
   <meta property="og:title" content="im-ifj"/>
   <meta property="og:description" content="im-ifj: the website of Isabella Jorissen" />
   <meta property="og:image" content=""> <!-- TODO logo -->
-  <meta property="og:url" content="http://cs.reed.edu">
+  <meta property="og:url" content="im-ifj.com">
   
   <title>{% block title %}im-ifj{% endblock %}</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" rel="stylesheet">
@@ -32,10 +32,11 @@
 <body>
 	<!-- <header>{% include 'includes/nav.html' %}</header> -->
 	<main>{% block content %}{% endblock %}</main>
+  <script src="{% static 'materialize/dist/js/materialize.min.js' %}"></script>
 	<!-- <footer>{% include 'includes/footer.html' %}</footer> -->
  	<!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 <!-- 	// <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+  <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script> -->
   <script src="{% static 'im-ifj/js/app.min.js' %}"></script>
   {% if debug %}
     <script src="//localhost:35729/livereload.js"></script>

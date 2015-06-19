@@ -1,7 +1,7 @@
 #navigation{
   font-color: $pink;
-  color: whitesmoke;
-  background-color: whitesmoke;
+  // color: whitesmoke;
+  background-color: $secondary-bkgrd;
   left: 0;
   padding: 0;
   @include MQ(L) {
@@ -20,7 +20,10 @@
       line-height: 4rem;
       text-align: center;
       float: none;
-      &:hover{
+      &:first-child:hover{
+        background: none;
+      }
+      &:not(:first-child):hover{
         background: linear-gradient(to right, transparent, rgba($pink, .2));
         &.active{
           background: rgba(0,0,0,0.1);
@@ -30,6 +33,7 @@
   }
   a{
     font-weight: 400;
+    font-size: $font-size-large;
     width: 100%;
     color: $pink;
     text-decoration: none;

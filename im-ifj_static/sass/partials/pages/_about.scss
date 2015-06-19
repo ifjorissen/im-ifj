@@ -1,8 +1,9 @@
 #me{
-	border-right: $pink .5rem solid;
-	padding: .5rem 1rem;
+	border-right: $green .5rem solid;
+	padding: .5rem 2rem;
 
 	#more{
+		margin-bottom: 0;
 		ul{
 			padding: 0;
 		}
@@ -10,6 +11,7 @@
 			// border-left: .25em $pink solid;
 			padding: 0 .5rem;
 			&.header{
+				font-size: $font-size-large;
 				border-left: none;
 				padding: 0;
 				font-weight: 400;

@@ -64,23 +64,44 @@ $cos30: .86602540378;
 
 .hex-wrapper{
   padding: 1.5rem 1.5rem 0 1.5rem;
+  // display: inline;
 }
 
 .hex{
+  // display: inline;
   // position: absolute;
   height: $hexh * 1rem;
   width: $hexw * 1rem;
   // @include center(x);
   margin: auto;
+  > *{
+    background: $green;
+    animation-delay: 1s  !important;
+    -webkit-animation-delay: 1s !important;
+    -moz-animation-delay: 1s !important;
+  }
 }
 
+.hex2{
+  // display: inline;
+  // position: absolute;
+  height: $hexh * 1rem;
+  width: $hexw * 1rem;
+  // @include center(x);
+  margin: auto;
+  margin-top: -1 * $hexh * 1rem;
+}
+
+// .hex2.line1{
+
+// } 
 
 .line1 {
     @extend .l;
     @include translate-rotate-scale($tx, $ty, 0deg, 1);
     .is-loading &{
       // -webkit-animation: rot0b 2s alternate infinite; 
-      @include animation(rot0b 2s alternate infinite)
+      @include animation(rot0b 2.5s alternate infinite)
     }
 }
 
@@ -89,7 +110,7 @@ $cos30: .86602540378;
     @include translate-rotate-scale($tx, $ty, 0deg, 1);
     .is-loading &{
       // -webkit-animation: rot0t 2s alternate infinite;
-      @include animation(rot0t 2s alternate infinite)
+      @include animation(rot0t 2.5s alternate infinite)
     }
 }
 
@@ -98,7 +119,7 @@ $cos30: .86602540378;
     @include translate-rotate-scale($tx, $ty, 0deg, 1);
     .is-loading &{
       // -webkit-animation: rot-60r 2s alternate infinite;
-      @include animation(rot-60r 2s alternate infinite)
+      @include animation(rot-60r 2.5s alternate infinite)
     }
 }
 
@@ -107,7 +128,7 @@ $cos30: .86602540378;
     @include translate-rotate-scale($tx, $ty, 0deg, 1);
     .is-loading &{
       // -webkit-animation: rot60l 2s alternate infinite;
-      @include animation(rot60l 2s alternate infinite)
+      @include animation(rot60l 2.5s alternate infinite)
     }
 
 }
@@ -116,7 +137,7 @@ $cos30: .86602540378;
     @include translate-rotate-scale($tx, $ty, 0deg, 1);
     .is-loading &{
       // -webkit-animation: rot-60l 2s alternate infinite;
-      @include animation(rot-60l 2s alternate infinite)
+      @include animation(rot-60l 2.5s alternate infinite)
     }
 }
 .line6 {
@@ -124,6 +145,6 @@ $cos30: .86602540378;
     @include translate-rotate-scale($tx, $ty, 0deg, 1);
     .is-loading &{
       // -webkit-animation: rot60r 2s alternate infinite;
-      @include animation(rot60r 2s alternate infinite)
+      @include animation(rot60r 2.5s alternate infinite)
     }
 }

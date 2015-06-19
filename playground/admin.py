@@ -27,7 +27,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
   fieldsets = [
     ('Project Information', {'fields': ['title', 'slug', 'objective', 'description', 'solution']}),
-    ('Project Resources', {'fields':['motivation', 'pub_date', 'completion_date', 'projurl']}),
+    ('Project Resources', {'fields':['pub_date', 'completion_date', 'projurl', 'thumbnail']}),
   ]
 
   # fieldsets = [

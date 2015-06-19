@@ -1,8 +1,7 @@
 {% extends "base.html"%}
 {% load static %}
-{% block otherFiles %}
-<!--   <link rel="stylesheet" href="{{STATIC_URL}}playground/playground.css"> -->
-  <link rel="stylesheet" href="{% static 'playground/css/main.css'%}">
+{% block stylesheets %}
+	<link rel="stylesheet" href="{% static 'playground/css/main.css'%}">
 {% endblock %}
 
 {% block title %} ifj/playground {% endblock %}

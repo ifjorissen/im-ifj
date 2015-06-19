@@ -1,46 +1,38 @@
 {% extends "playground/p_base.html" %}
 {% block title %} ifj/playground {% endblock %}
 {% load custom_markdown %}
+{% load static %}
 
 {% block projects %}
-
 {% if project_list %}
-  {% for project in project_list %}
-  <section class="row">
-    <section class="col l7 s10 offset-l2 offset-s1">
-      <section class="proj-object">
-        <div class="proj-header">
-            <h2><a href = "{{project.get_absolute_url}}">{{project.title}}</a></h2>
-            <p>Completed On: {{project.completion_date}}</p> 
-            <p>Project URL: {{project.projurl}}</p> 
-            <!-- <p>{{project.pub_date}}</p>  -->
-            <p>Motivation: {{project.motivation}}</p> 
-        </div>
-        <section class="row">
-          <section class="col l6 m6 s12 proj-body flow-text">
-              <h5 class="subheader">Description:</h5>
-              {{project.description|custom_markdown}}
-          </section>
-          <section class="col l6 m6 s12 proj-body flow-text">
-              <h5 class="subheader">Screenshots</h5>
-              {% for img in project.projectimage_set.all %}
-                <li><img class="responsive-img" src="{{MEDIA_URL}}{{img.projimg}}"></li>
-                <li>{{img.caption}}</li>
-              {% endfor %}
-              <!-- {{project.tech|custom_markdown}}
- -->          </section>
-        </section>
+<section class="row">
+  <section class="col l8 m10 s10 offset-l2 offset-m1 offset-s1">
+    <section class="row">
+    {% for project in project_list %}
+    <section class="col l6 m6 s12">
+      <section class="card proj-object">
+          <div class="card-image"><img class="responsive-img" src="{% get_static_prefix %}{{project.thumbnail}}"></div>
+          <div class="card-content">
+            <h3>{{project.title}}</h3>
+            <p class = "flow-text">{{project.objective}}</p>
+          </div>
+          <div class="card-action">
+            <a href = "{{project.get_absolute_url}}"> More about this project <span class="secondary-content"><i class="mdi-action-trending-neutral"></i></span></a>
+          </div>
       </section>
     </section>
+      {% endfor %}
+    </section>
   </section>
-  {% endfor %}
+</section>
 {% else %}
-  <div  id="coming-soon" class="col s10 l6 offset-s1 offset-l3">
-    <div class="card-panel center-align">
-      <span> Project Descriptions Coming Soon!</span>
-    </div>
-  </div>
+      <div  id="coming-soon" class="col s10 l6 offset-s1 offset-l3">
+        <div class="card-panel center-align">
+          <span> Project Descriptions Coming Soon!</span>
+        </div>
+      </div>
 {% endif %}
+
 
 {% endblock %}
 

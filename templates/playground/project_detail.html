@@ -1,59 +1,39 @@
 {% extends "playground/p_base.html" %}
 {% block title %} ifj/playground {% endblock %}
+{% load static %}
 
 {% load custom_markdown %}
-<!-- {% block projects %}
-<section class="col l7 s10 offset-l2 offset-s1">
-	<section class="proj-object detail">
-	  <div class="proj-header">
-	      <h1>{{project.title}}</h1>
-		<p>{{project.pub_date}}</p>
-		<a href="{{project.projurl}}"></a>
-	  </div>
-	  <img class="responsive-img" src="{{STATIC_URL}}{{project.projimg}}">
-	    <section class="flow-text">
-        <h5 class="subheader">Idea:</h5>
-     	  {{project.idea|custom_markdown}}
-      </section>
-    <section class="flow-text">
-        <h5 class="subheader">Description:</h5>
-        {{project.description|custom_markdown}}
-    </section>
-    <section class="flow-text">
-        <h5 class="subheader">Tech:</h5>
-        {{project.tech|custom_markdown}}
-    </section>
-	</section>
-</section>
-{% endblock %}
-
-{% block footer %}
-<div class = "pagination_footer">
-    <p>Copyright &copy; {% now "Y" %}</p>
-</div>
-{% endblock %} -->
 {% block projects %}
   <section class="row">
     <section class="col l7 s10 offset-l2 offset-s1">
       <section class="proj-object">
-        <div class="proj-header">
+        <section class="row valign-wrapper proj-header">
+          <div class="col l2 s2 m2 valign-wrapper"><img class="circle responsive-img" src="{% get_static_prefix %}{{project.thumbnail}}"></div>
+          <div class="col l10 m10 s10 right-align">
             <h2><a href = "{{project.get_absolute_url}}">{{project.title}}</a></h2>
-            <p>Completed On: {{project.completion_date}}</p> 
-            <p>Project URL: {{project.projurl}}</p> 
-            <!-- <p>{{project.pub_date}}</p>  -->
-            <p>Motivation: {{project.motivation}}</p> 
-        </div>
+            <span class="h4">Project URL:</span><span><a href="{{project.projurl}}"> {{project.projurl}}</a></span> <br>
+            <span class="h4">Completed On:</span><span> {{project.completion_date}}</span></br>
+          </div>
+        </section>
         <section class="row">
-          <section class="col l6 m6 s12 proj-body flow-text">
+          <section class="col l12 m12 s12 proj-body flow-text">
+              <h5 class="subheader">Objective:</h5>
+              {{project.objective|custom_markdown}}
               <h5 class="subheader">Description:</h5>
               {{project.description|custom_markdown}}
           </section>
-          <section class="col l6 m6 s12 proj-body flow-text">
-              <h5 class="subheader">Screenshots</h5>
+          <section class="col l12 m12 s12 proj-images flow-text">
+              <h5 class="subheader">Project Stills</h5>
+              <section class="row">
               {% for img in project.projectimage_set.all %}
-                <li><img class="responsive-img" src="{{STATIC_URL}}{{img.projimg}}"></li>
-                <li>{{img.caption}}</li>
+              <div class="col l6 m6 s12 proj-image-wrapper">
+                <div class="proj-img">
+                  <img class="responsive-img" src="{% get_static_prefix %}{{img.projimg}}">
+                  <p class="img-caption">{{img.caption}}</p>
+                </div>
+              </div>
               {% endfor %}
+              </section>
               <!-- {{project.tech|custom_markdown}}
  -->          </section>
         </section>
