@@ -22,7 +22,9 @@ _____
   * activate the pyvenv (`source ~/Envs/im-ifj/bin/activate`)
   * `pip install -r requirements.txt`
   * `npm install`
-  * install bourbon: `gem install bourbon` `cd im-ifj_static/sass/` and finally, `bourbon install`
+  * `bower install`
+  * add `bower_components` to the staticfiles_dirs in settings.py
+
 
 
 
