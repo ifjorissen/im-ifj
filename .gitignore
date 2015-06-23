@@ -7,3 +7,5 @@ staticfiles
 static/*
 im-ifj_static/sass/bourbon
 **/__pycache__
+portfolio
+media/*

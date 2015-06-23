@@ -15,15 +15,11 @@
   <meta property="og:url" content="im-ifj.com">
   
   <title>{% block title %}im-ifj{% endblock %}</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" rel="stylesheet">
   <link rel = "stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   {% block stylesheets %}
  	<link href="{% static 'im-ifj/css/main.css' %}" rel="stylesheet">
   {% endblock %}
-    
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<!--   <link rel="stylesheet" href="css/styles.css?v=1.0">
- -->
+
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -32,6 +28,7 @@
 <body>
 	<!-- <header>{% include 'includes/nav.html' %}</header> -->
 	<main>{% block content %}{% endblock %}</main>
+  <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
   <script src="{% static 'materialize/dist/js/materialize.min.js' %}"></script>
 	<!-- <footer>{% include 'includes/footer.html' %}</footer> -->
  	<!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
