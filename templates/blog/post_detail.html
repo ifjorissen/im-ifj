@@ -1,0 +1,24 @@
+{% extends "blog/b_base.html" %}
+
+{% load custom_markdown %}
+{% block posts %}
+<section class="row">
+<section class="col l9 s10 offset-l2 offset-s1">
+	<section class="post-object detail">
+	  <div class="post-header right-align">
+	      <h2>{{post.title}}</h2>
+		<p>{{post.pub_date}}</p>
+	  </div>
+	  <section class="post_body flow-text">
+	      {{post.text|custom_markdown}}
+	  </section>
+	</section>
+</section>
+</section>
+{% endblock %}
+
+{% block footer %}
+<div class = "pagination_footer">
+    <p>Copyright &copy; {% now "Y" %}</p>
+</div>
+{% endblock %}

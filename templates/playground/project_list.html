@@ -1,0 +1,49 @@
+{% extends "playground/p_base.html" %}
+{% block title %} ifj/playground {% endblock %}
+{% load custom_markdown %}
+{% load static %}
+
+{% block projects %}
+{% if project_list %}
+<section class="row">
+  <section class="col l8 m10 s10 offset-l2 offset-m1 offset-s1">
+    <section class="row">
+    {% for project in project_list %}
+    <section class="col l6 m6 s12">
+      <section class="card proj-object">
+          <div class="card-image"><img class="responsive-img" src="{{project.thumbnail.url}}"></div>
+          <div class="card-content">
+            <h4>{{project.title}}</h4>
+            <p class = "flow-text">{{project.objective}}</p>
+          </div>
+          <div class="card-action">
+            <a href = "{{project.get_absolute_url}}"> More about this project <span class="secondary-content"><i class="fa fa-long-arrow-right"></i></span></a>
+          </div>
+      </section>
+    </section>
+      {% endfor %}
+    </section>
+  </section>
+</section>
+{% else %}
+      <div  id="coming-soon" class="col s10 l6 offset-s1 offset-l3">
+        <div class="card-panel center-align">
+          <span> Project Descriptions Coming Soon!</span>
+        </div>
+      </div>
+{% endif %}
+
+
+{% endblock %}
+
+{% block footer %}
+<div class = "pagination_footer">
+  {% if page_obj.has_previous %}
+  <h5 class = "prev"><a href = "/playground/{{page_obj.previous_page_number}}/">Previous Page</a></h5>
+  {% endif %}
+
+  {% if page_obj.has_next %}
+  <h5 class ="next"><a href = "/playground/{{page_obj.next_page_number}}/">Next Page</a></h5>
+  {% endif %}
+</div>
+{% endblock %}

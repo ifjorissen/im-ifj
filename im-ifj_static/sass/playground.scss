@@ -1,0 +1,87 @@
+@import '_base';
+@include keyframes(fadeIn){
+	100%{
+		opacity: 1;
+	}
+}
+#coming-soon{
+	background: whitesmoke;
+	.card-panel{
+		border-right: $pink .5rem solid;
+	}
+}
+
+#proj-wrapper{
+	> :first-child{
+		padding-top: 4rem;
+	}
+}
+
+//override materialize style
+.card{
+	background-color: $secondary-bkgrd;
+}
+
+.proj-object{
+	h1,h2,h3,h4,h5,h6{
+		color: $green;
+		font-weight: 300;
+		margin-top: 0;
+	}
+	span.h4{
+		font-weight: 300;
+		font-size: $font-size-large;
+	}
+
+	.proj-img{
+		position: relative;
+		.img-caption:hover{
+			opacity: 1;
+		}
+		.img-caption{
+			overflow:scroll;
+			margin: 0;
+			position: absolute;
+			background-color: rgba(black, .85);
+			color: white;
+			top: 0;
+			right: 0;
+			bottom: 10px;
+			left: 0;
+			// height: 350px;
+			// width: 350px;
+			padding: 25px;
+			opacity: 0;
+			@include transition(opacity 400ms ease-in-out);
+		}
+	}
+
+	//override materialize style
+	.card-action a{
+		color: darken($pink, 10%);
+		text-decoration: none;
+		&:hover { color: lighten($pink, 10%); }
+		i {
+			color: darken($pink, 10%);
+		}
+	}
+		// blockquote{
+		// 	font-style: none;
+		// 	font-size: 1rem;
+		// 	border-left: .3rem solid $pink;
+		// }
+	// }
+	&.detail{
+		// padding: 4rem 2rem 2rem 4rem;
+		border-right: .5rem solid $pink;
+	}
+	.project-header{
+		display: inline-block;
+	}
+	//.subheader, .subheader~p{
+	//	display: inline-block;
+	//}
+	p{
+		margin-top:0;
+	}
+}

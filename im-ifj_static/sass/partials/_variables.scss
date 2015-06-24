@@ -1,0 +1,104 @@
+//colors
+$dark-blue: #003A59; 
+$lt-gray: #aebcb9; // Tower Gray
+$gray: #0d0d0d; // Cod Gray
+$pink: #ca8799; //resume
+$green: #1F5926;
+// $secondary-bkgrd: whitesmoke; //resume
+$secondary-bkgrd: whitesmoke;
+$main-bkgrd: white;
+//hexagon info
+$hexw: 4;
+$hexh: 4;
+$linew: ($hexw * 1.0);
+$tx: (($hexw - $linew)/2)*1rem;
+$ty: ($hexh/2)*1rem;
+
+
+// breakpoints
+$S:     600px;
+$M:     992px;
+$L:     1170px;
+
+
+//font info
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,400,300,200);
+$font-family: 'Raleway', Helvetica Neue, sans serif;
+$font-weight: 300;
+$font-size-small: .8rem;
+$font-size-med: 1rem;
+$font-size-large: 1.2rem;
+// $line-height: 1.6em;
+
+//materialize variable overrides
+/*** Colors ***/
+$primary-color: $pink !default;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+
+$secondary-color: $green !default;
+$link-color: $green !default;
+
+//cards
+$card-bg-color: $secondary-bkgrd !important;
+
+// Flowtext
+$range : $L - $S !default;
+$intervals: 10 !default;
+$interval-size: $range / $intervals !default;
+
+
+
+.flow-text{
+  font-weight: 300;
+  $i: 0;
+  @while $i <= $intervals {
+    @media only screen and (min-width : 360 + ($i * $interval-size)) {
+      font-size: $font-size-small * (1 + (.02 * $i));
+    }
+    @media only screen and (min-width : 0 + ($i * $interval-size)) {
+      font-size: $font-size-small * (1 + (.02 * $i));
+      line-height: $font-size-small * .8 * (1 + (.13 * $i));
+    }
+    $i: $i + 1;
+  }
+}
+
+
+// media queries
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (max-width: $S) { @content; }
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $S + 1) and (max-width: $M) { @content; }
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $M) { @content; }
+  }
+}
+
+// center vertically and/or horizontally an absolute positioned element
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+
+
+

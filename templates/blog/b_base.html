@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+{% load static %}
+{% block stylesheets %}
+   <!--  <link rel="stylesheet" href="{{STATIC_URL}}blog/blog.css"> -->
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+{% endblock %}
+
+{% block title %} B.log() {% endblock %}
+
+{% block content %}
+	<section class = "row">
+		{% include "includes/nav.html" %}
+		<section id="posts-wrapper" class = "col s12 l10 offset-l2">
+		{% block posts %}{% endblock %}
+		</section>
+	</section>
+{% endblock %}
