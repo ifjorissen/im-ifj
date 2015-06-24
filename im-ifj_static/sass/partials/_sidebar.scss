@@ -1,5 +1,6 @@
 #navigation{
   font-color: $pink;
+  overflow:scroll;
   // color: whitesmoke;
   background-color: $secondary-bkgrd;
   left: 0;
@@ -7,6 +8,7 @@
   @include MQ(L) {
     height: 100vh;
     position: fixed;
+    padding-top: 1rem;
   }
   ul{
     width: 100%;
@@ -15,6 +17,9 @@
     &.side-nav{
       width: 15rem;
       max-width: 50vw;
+      li:first-child{
+        padding: 1.5rem;
+      }
     }
     li{
       line-height: 4rem;
@@ -32,7 +37,7 @@
     }
   }
   a{
-    font-weight: 400;
+    // font-weight: 400;
     font-size: $font-size-large;
     width: 100%;
     color: $pink;

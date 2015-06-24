@@ -11,9 +11,9 @@
     {% for project in project_list %}
     <section class="col l6 m6 s12">
       <section class="card proj-object">
-          <div class="card-image"><img class="responsive-img" src="{% get_static_prefix %}{{project.thumbnail}}"></div>
+          <div class="card-image"><img class="responsive-img" src="{{project.thumbnail.url}}"></div>
           <div class="card-content">
-            <h3>{{project.title}}</h3>
+            <h4>{{project.title}}</h4>
             <p class = "flow-text">{{project.objective}}</p>
           </div>
           <div class="card-action">

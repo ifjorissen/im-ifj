@@ -1,11 +1,21 @@
+#me-wrapper{
+	>.row{
+		min-height:100vh;
+		margin: 0;
+	}
+}
 #me{
 	border-right: $green .5rem solid;
 	padding: .5rem 2rem;
 
 	#more{
+		.col{
+			padding: 0;
+		}
 		margin-bottom: 0;
 		ul{
 			padding: 0;
+			margin: 0;
 		}
 		li{
 			// border-left: .25em $pink solid;
