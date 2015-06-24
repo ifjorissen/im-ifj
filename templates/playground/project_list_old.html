@@ -1,0 +1,85 @@
+{% extends "playground/p_base.html" %}
+{% block title %} ifj/playground {% endblock %}
+{% load custom_markdown %}
+
+{% block projects %}
+
+{% if project_list %}
+  {% for project in project_list %}
+  <section class="row">
+    <section class="col l7 s10 offset-l2 offset-s1">
+      <section class="proj-object">
+        <div class="proj-header">
+        <!-- add a project thumbnail!?! -->
+            <span><img class="responsive-img" src="{{STATIC_URL}}{{img.thumbnail}}"></span>
+            <h2><a href = "{{project.get_absolute_url}}">{{project.title}}</a></h2>
+            <span class="h5">Project URL:</span><span><a href="{{project.projurl}}"> {{project.projurl}}</a></span> <br>
+            <span class="h5">Objective:</span><span> {{project.objective}}</span> 
+        </div>
+        </section>
+      </section>
+    </section>
+  </section>
+  {% endfor %}
+{% else %}
+  <div  id="coming-soon" class="col s10 l6 offset-s1 offset-l3">
+    <div class="card-panel center-align">
+      <span> Project Descriptions Coming Soon!</span>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+<div class = "pagination_footer">
+  {% if page_obj.has_previous %}
+  <h5 class = "prev"><a href = "/playground/{{page_obj.previous_page_number}}/">Previous Page</a></h5>
+  {% endif %}
+
+  {% if page_obj.has_next %}
+  <h5 class ="next"><a href = "/playground/{{page_obj.next_page_number}}/">Next Page</a></h5>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+
+2.0:
+{% if project_list %}
+<!--   {% for project in project_list %} -->
+  <section class="row">
+    <section class="col l7 s10 offset-l2 offset-s1">
+    <section class="row">
+    <section class="col l6 m6 s12">
+    {% for project in project_list %}
+      <section class="card proj-object">
+        <div class="proj-header">
+        <!-- add a project thumbnail!?! -->
+            <div class="card-image"><img class="responsive-img" src="{% get_static_prefix %}{{project.thumbnail}}"></div>
+            <div class="card-content">
+              <h2>{{project.title}}</h2>
+              <p class = "flow-text">{{project.objective}}</p>
+            </div>
+            <div class="card-action">
+              <a href = "{{project.get_absolute_url}}">Get the Details <span class="secondary-content"><i class="mdi-action-trending-neutral"></i></span></a>
+            </div>
+        </div>
+      </section>
+    {% if forloop.counter|divisibleby:2 %}
+    </section>
+      <section>
+      {% endif %}
+      {% endfor %}
+      </section>
+    </section>
+  </section>
+</section>
+  {% endfor %}
+{% else %}
+  <div  id="coming-soon" class="col s10 l6 offset-s1 offset-l3">
+    <div class="card-panel center-align">
+      <span> Project Descriptions Coming Soon!</span>
+    </div>
+  </div>
+{% endif %}
