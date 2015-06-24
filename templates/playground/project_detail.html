@@ -5,10 +5,10 @@
 {% load custom_markdown %}
 {% block projects %}
   <section class="row">
-    <section class="col l7 s10 offset-l2 offset-s1">
+    <section class="col l9 s10 offset-l2 offset-s1">
       <section class="proj-object">
         <section class="row valign-wrapper proj-header">
-          <div class="col l2 s2 m2 valign-wrapper"><img class="circle responsive-img" src="{% get_static_prefix %}{{project.thumbnail}}"></div>
+          <div class="col l2 s2 m2 valign-wrapper"><img class="circle responsive-img" src="{{project.thumbnail.url}}"></div>
           <div class="col l10 m10 s10 right-align">
             <h2><a href = "{{project.get_absolute_url}}">{{project.title}}</a></h2>
             <span class="h4">Project URL:</span><span><a href="{{project.projurl}}"> {{project.projurl}}</a></span> <br>
@@ -18,9 +18,10 @@
         <section class="row">
           <section class="col l12 m12 s12 proj-body flow-text">
               <h5 class="subheader">Objective:</h5>
-              {{project.objective|custom_markdown}}
+              {{project.objective|custom_markdown}}<br>
               <h5 class="subheader">Description:</h5>
-              {{project.description|custom_markdown}}
+              {{project.description|custom_markdown}}</br>
+	      <h5 class="subheader">Solution:</h5>{{project.solution|custom_markdown}}</br>
           </section>
           <section class="col l12 m12 s12 proj-images flow-text">
               <h5 class="subheader">Project Stills</h5>
@@ -28,7 +29,7 @@
               {% for img in project.projectimage_set.all %}
               <div class="col l6 m6 s12 proj-image-wrapper">
                 <div class="proj-img">
-                  <img class="responsive-img" src="{% get_static_prefix %}{{img.projimg}}">
+                  <img class="responsive-img" src="{{img.projimg.url}}">
                   <p class="img-caption">{{img.caption}}</p>
                 </div>
               </div>
