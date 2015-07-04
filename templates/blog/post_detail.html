@@ -2,16 +2,18 @@
 
 {% load custom_markdown %}
 {% block posts %}
-<section class="col l10 s10 offset-l1 offset-s1">
+<section class="row">
+<section class="col l9 s10 offset-l2 offset-s1">
 	<section class="post-object detail">
-	  <div class="post-header">
-	      <h1>{{post.title}}</h1>
+	  <div class="post-header right-align">
+	      <h2>{{post.title}}</h2>
 		<p>{{post.pub_date}}</p>
 	  </div>
 	  <section class="post_body flow-text">
 	      {{post.text|custom_markdown}}
 	  </section>
 	</section>
+</section>
 </section>
 {% endblock %}
 

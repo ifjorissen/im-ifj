@@ -4,10 +4,10 @@
 
 {% for post in object_list %}
 <section class="row">
-    <section class="col l7 s10 offset-l2 offset-s1">
+    <section class="col l8 s10 offset-l2 offset-s1">
         <section class ="post-object ">
             <div class="post-header">
-                <h2><a href = "{{post.get_absolute_url}}">{{post.title}}</a></h2>
+                <h3><a href = "{{post.get_absolute_url}}">{{post.title}}</a></h3>
                 <p>{{post.pub_date}}</p>
                 <span>Tagged under: 
                 {% for tag in post.tags.all %}
