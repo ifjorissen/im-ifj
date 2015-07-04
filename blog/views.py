@@ -9,8 +9,7 @@ def index(request):
   # now return the rendered template
   return render(request, 'blog/post_list.html', {'object_list': posts})
 
-def post_detail(request, year, month, slug):
-  unslug = slug.replace('-', ' ')
+def post_detail(request, slug):
   post = Post.objects.get(slug=str(slug))
   return render(request, 'blog/post_detail.html', {'post': post})
 

@@ -8,12 +8,16 @@
         <section class ="post-object ">
             <div class="post-header">
                 <h3><a href = "{{post.get_absolute_url}}">{{post.title}}</a></h3>
-                <p>{{post.pub_date}}</p>
-                <p>Tagged under: 
+               <!--  <p><span class="pre">Posted on </span> -->
+                <span class="date">{{post.pub_date}}</span>
+                {% if post.tags.all %}
+               <!--  <p class="pre">Tagged with -->
+                <span>&#149 </span>
                 {% for tag in post.tags.all %}
-                <a class="tag" href="{{tag.get_absolute_url}}">{{tag.slug}} </a>
+                <span><a class="tag" href="{{tag.get_absolute_url}}">{{tag.slug}}</a>&nbsp</span>
                 {% endfor %}
                 </p>
+                {% endif %}
             </div>
             <div class="post-body flow-text">
                 {{post.text|custom_markdown}}

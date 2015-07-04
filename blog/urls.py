@@ -22,7 +22,7 @@ urlpatterns = [
   url(r'^$', 'blog.views.index'),
 
   # Individual posts
-  url(r'^(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<slug>[a-zA-Z0-9-]+)/$', 'blog.views.post_detail'),
+  url(r'^(?P<slug>[a-zA-Z0-9-]+)/$', 'blog.views.post_detail'),
 
   #posts with a specifc tag
   url(r'^tagged/(?P<tag>[a-zA-Z0-9-]+)/$', 'blog.views.tagged', name="posts_tagged")
