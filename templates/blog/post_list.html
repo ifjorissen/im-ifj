@@ -20,24 +20,25 @@
                 {% endif %}
             </div>
             <div class="post-body flow-text">
-                {{post.text|custom_markdown}}
+                {{post.text|custom_markdown | truncatewords:250}} 
+            </div>
+        </section>
+    </section>
+</section>
+{% empty %}
+<section class="row">
+    <section class="col l8 s10 offset-l2 offset-s1">
+        <section class ="post-object ">
+            <div class="post-header">
+                <h3>Sorry, there aren't any post here right now</h3>
+               <!--  <p><span class="pre">Posted on </span> -->
+            </div>
+            <div class="post-body flow-text">
+                (I'll try to write some soon!)
             </div>
         </section>
     </section>
 </section>
 {% endfor %}
 
-{% endblock %}
-
-{% block footer %}
-<div class = "pagination_footer">
-    {% if page_obj.has_previous %}
-    <h4 class = "prev"><a href = "/blog/{{page_obj.previous_page_number}}/">Previous Page</a></h4>
-    {% endif %}
-
-    {% if page_obj.has_next %}
-    <h4 class ="next"><a href = "/blog/{{page_obj.next_page_number}}/">Next Page</a></h4>
-    {% endif %}
-
-</div>
 {% endblock %}
