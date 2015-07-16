@@ -26,7 +26,7 @@ class ProjectAdmin(admin.ModelAdmin):
   prepopulated_fields = {"slug": ("title",)}
 
   fieldsets = [
-    ('Project Information', {'fields': ['title', 'slug', 'objective', 'description', 'solution']}),
+    ('Project Information', {'fields': ['title', 'slug', 'objective', 'description', 'solution', 'gallery']}),
     ('Project Resources', {'fields':['pub_date', 'completion_date', 'projurl', 'thumbnail']}),
   ]
 
