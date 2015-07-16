@@ -35,6 +35,12 @@
 
 	.proj-img{
 		position: relative;
+		display: table;
+		margin: 0 auto;
+		max-height: 75vh;
+		img{
+			max-height: 75vh;
+		}
 		.img-caption:hover{
 			opacity: 1;
 		}

@@ -33,7 +33,7 @@
           <section class="col l12 m12 s12 proj-images flow-text">
               <h5 class="subheader">Project Stills</h5>
               {% if project.gallery %}
-                {% for img in project.projectimage_set.all %}
+                {% for img in project.projectimage_set.all reversed %}
                 <section class="row">
                 <div class="col l10 m10 s12 proj-image-wrapper">
                   <div class="proj-img">
@@ -45,7 +45,7 @@
                 {% endfor %}
               {% else %}
                 <section class="row">
-                {% for img in project.projectimage_set.all %}
+                {% for img in project.projectimage_set.all reversed %}
                 <div class="col l6 m6 s12 proj-image-wrapper">
                   <div class="proj-img">
                     <img class="responsive-img" src="{{img.projimg.url}}">
