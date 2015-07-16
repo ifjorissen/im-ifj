@@ -9,7 +9,8 @@
   <section class="col l8 m10 s10 offset-l2 offset-m1 offset-s1">
     <section class="row">
     {% for project in project_list %}
-    <section class="col l6 m6 s12">
+    {% cycle ' ' 'offset-l2' as lgcol silent%}
+    <section class="col l5 m6 s12 {{ lgcol }}">
       <section class="card proj-object">
           <div class="card-image"><img class="responsive-img" src="{{project.thumbnail.url}}"></div>
           <div class="card-content">
@@ -21,6 +22,10 @@
           </div>
       </section>
     </section>
+      {% if forloop.counter|divisibleby:2 %}
+      </section>
+      <section class="row">
+      {% endif %}
       {% endfor %}
     </section>
   </section>

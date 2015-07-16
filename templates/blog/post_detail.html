@@ -6,8 +6,16 @@
 <section class="col l9 s10 offset-l2 offset-s1">
 	<section class="post-object detail">
 	  <div class="post-header right-align">
-	      <h2>{{post.title}}</h2>
-		<p>{{post.pub_date}}</p>
+      <h2>{{post.title}}</h2>
+                <span class="date">{{post.pub_date}}</span>
+                {% if post.tags.all %}
+               <!--  <p class="pre">Tagged with -->
+                <span>&#149 </span>
+                {% for tag in post.tags.all %}
+                <span><a class="tag" href="{{tag.get_absolute_url}}">{{tag.slug}}</a>&nbsp</span>
+                {% endfor %}
+                </p>
+                {% endif %}
 	  </div>
 	  <section class="post_body flow-text">
 	      {{post.text|custom_markdown}}
